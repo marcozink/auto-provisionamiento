@@ -1,0 +1,7 @@
+<DialNow>
+	<Data DialNowRule="1xx" LineID="1"/>
+	<Data DialNowRule="[1-9]xxxxxxx" LineID="1"/>
+	<Data DialNowRule="01[2-9]xxxxxxxxx" LineID="1"/>
+	<Data DialNowRule="04[45][2-9]xxxxxxxxx" LineID="1"/>
+	<Data DialNowRule="001[2-9]xxxxxxxxx" LineID="1"/>
+</DialNow>
