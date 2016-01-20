@@ -48,7 +48,7 @@ if ((isset($argv[2])) && (file_exists($argv[2])))
 	$mac_file = $argv[2];
 
 // Si no existe el archivo de plantilla, terminar
-if (!file_exists("template.$template_name.php"))
+if (!file_exists($template_dir . "template.$template_name.php"))
 	die("No existe el archivo template.$template_name.php. Terminando.");
 if (!file_exists($mac_file))
 	die("No existe archivo de direcciones MAC. Abortando.");
@@ -130,18 +130,20 @@ while (($linea = fgetcsv($handle,1000,$separador)) !== FALSE) {
 		if ($linea[array_search('ipaddress',$headers)]) 
 			echo "  IP Address: $ipaddress\n     Netmask: $netmask\n     Gateway: $gateway\n\n";
 	}
-	// Cargamos el template
+	
+	// Cargamos la plantilla
 	ob_start();
-	include "template.$template_name.php";
+	include $template_dir . "template.$template_name.php";
 	$content = ob_get_clean();
 
+	
+	// Especificamos los nombres de archivo según la marca lo requiere
 	if ($template_name == 'aastra')
 		$filename = $dir . strtoupper($mac). '.cfg';
 	elseif ($template_name == 'cisco')
 		$filename = $dir . 'spa'.strtolower(substr($mac,0,2).':'.substr($mac,2,2).':'.substr($mac,4,2).':'.substr($mac,6,2).':'.substr($mac,8,2).':'.substr($mac,10,2)). '.xml';
-	else
+	else	// Default: Yealink
 		$filename = $dir . strtolower($mac). '.cfg';
-	
 
 	$newfile = fopen($filename,'w');
 	fputs($newfile,$content);

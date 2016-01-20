@@ -35,3 +35,6 @@ $dbpass = 'freepbxpass';
 
 // Activar debug
 $debug	= TRUE;
+
+// Directorio de plantillas
+$template_dir = './templates';
