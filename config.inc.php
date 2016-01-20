@@ -28,7 +28,7 @@ $netmask	= '255.255.255.0';
 
 // Datos de conexión a la BD
 $dbname = 'freepbx';
-$dbhost = 'sql.enlaza.mx';
+$dbhost = 'localhost';
 $dbuser = 'freepbxuser';
 $dbpass = 'freepbxpass';
 
