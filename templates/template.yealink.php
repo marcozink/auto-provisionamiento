@@ -74,3 +74,7 @@ remote_phonebook.data.1.url=tftp://<?php echo $server_ip?>/directorio-yealink.xm
 
 remote_phonebook.data.1.name=Directorio
 
+### Activar provisionamiento cada 24 horas
+
+auto_provision.repeat.enable=1
+
